@@ -1,0 +1,41 @@
+#include <stdio.h>
+int main(void) {
+    char customer_name[50];
+    float price1, price2;
+    int qty1, qty2;
+    float discount_percent;
+    float vat_percent;
+    float cash_paid; 
+    printf("Customer:");
+    scanf("%s", &customer_name);
+    printf("Item 1 Total:");
+    scanf("%f %d", &price1, &qty1);
+    printf("Price 2 Total:");
+    scanf("%f %d", &price2, &qty2);
+    printf("Dicount Percent:");
+    scanf("%f", &discount_percent);
+    printf("VAT Percent:");
+    scanf("%f", &vat_percent);
+    printf("Cash Paid:");
+    scanf("%f", &cash_paid);
+    float total1 = price1 * qty1;
+    float total2 = price2 * qty2;
+    float subtotal = total1 + total2;
+    float discount_amount = subtotal * discount_percent / 100;
+    float after_discount = subtotal - discount_amount;
+    float vat_amount = after_discount * vat_percent / 100;
+    float grand_total = after_discount + vat_amount;
+    float change = cash_paid - grand_total;
+    printf("=========RECEIPT=========\n");
+    printf("Customer: %10s\n", customer_name);
+    printf("Item 1 Total: %10.2f\n", total1);
+    printf("Item 2 Total: %10.2f\n", total2);
+    printf("Subtotal: %10.2f\n", subtotal);
+    printf("Discount: %10.2f\n", after_discount);
+    printf("VAT: %10.2f\n", vat_amount);
+    printf("Grand Total: %10.2f\n", grand_total);
+    printf("Cash Paid: %10.2f\n", cash_paid);
+    printf("Change: %10.2f\n", change);
+    printf("==========================\n");
+    return 0;
+}
